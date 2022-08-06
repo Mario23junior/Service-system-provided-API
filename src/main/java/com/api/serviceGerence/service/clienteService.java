@@ -28,7 +28,7 @@ public class clienteService {
 	public Cliente listClient(Integer id) {
 		Cliente find = clienteRepository
 				.findById(id)
-				.orElseThrow(() -> new ExceptionsReturnMessage("Erro ao buscar id"+ id +", não encontrado", HttpStatus.NOT_FOUND));
+				.orElseThrow(() -> new ExceptionsReturnMessage("Erro ao buscar id "+id+ ", não encontrado", HttpStatus.NOT_FOUND));
 		return find;
 	}
 	
