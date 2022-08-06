@@ -43,7 +43,7 @@ public class ClienteController {
 	}
 	
 	@PutMapping("{id}")
-	public void update(@PathVariable Integer id, @RequestBody Cliente cliente) {
+	public void update(@PathVariable Integer id,@Valid @RequestBody Cliente cliente) {
 		 clienteService.updateClient(cliente, id);
 	}
 }

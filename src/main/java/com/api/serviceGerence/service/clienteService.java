@@ -17,7 +17,11 @@ public class clienteService {
 	}
 	
 	public Cliente saveCliente(Cliente cliente) {
-		return clienteRepository.save(cliente);
+		Cliente saveCli = clienteRepository.save(cliente);
+		if(saveCli.equals(null)) {
+			throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+		}
+		return saveCli;
 	}
 	
 	public Cliente listClient(Integer id) {
