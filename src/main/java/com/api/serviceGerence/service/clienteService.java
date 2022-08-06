@@ -39,7 +39,7 @@ public class clienteService {
 					clienteRepository.delete(findId);
 					return Void.TYPE;
 				})
-				.orElseThrow(() -> new ResponseStatusException(HttpStatus.NO_CONTENT));
+				.orElseThrow(() -> new ExceptionsReturnMessage("Erro ao deletar id"+ id, HttpStatus.NO_CONTENT));
  	}
 	
 	
@@ -50,7 +50,7 @@ public class clienteService {
 			clienteAtualizado.setId(findId.getId());
 			return clienteRepository.save(clienteAtualizado);
 		})
-		.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
+		.orElseThrow(() -> new ExceptionsReturnMessage("Erro ao buscar atualizar o id "+ id, HttpStatus.NOT_FOUND));
 	}
 }
 
