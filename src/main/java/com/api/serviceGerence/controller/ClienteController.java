@@ -1,8 +1,13 @@
 package com.api.serviceGerence.controller;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.api.serviceGerence.model.Cliente;
 import com.api.serviceGerence.service.clienteService;
 
 @RestController
@@ -13,5 +18,11 @@ public class ClienteController {
 	
 	public ClienteController(clienteService clienteService) {
 		this.clienteService = clienteService;
+	}
+	
+	@PostMapping
+	@ResponseStatus(HttpStatus.CREATED)
+	public Cliente save(@RequestBody Cliente cliente) {
+		return clienteService.saveCliente(cliente);
 	}
 }
