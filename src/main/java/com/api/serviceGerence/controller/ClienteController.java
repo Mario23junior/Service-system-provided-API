@@ -1,5 +1,7 @@
 package com.api.serviceGerence.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,7 +24,7 @@ public class ClienteController {
 	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public Cliente save(@RequestBody Cliente cliente) {
+	public Cliente save(@RequestBody @Valid Cliente cliente) {
 		return clienteService.saveCliente(cliente);
 	}
 }
