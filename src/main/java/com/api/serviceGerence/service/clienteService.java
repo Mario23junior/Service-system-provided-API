@@ -26,4 +26,14 @@ public class clienteService {
 				.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
 		return find;
 	}
+	
+	public void deleteClient(Integer id) {
+		     clienteRepository
+				.findById(id)
+				.map(findId -> {
+					clienteRepository.delete(findId);
+					return Void.TYPE;
+				})
+				.orElseThrow(() -> new ResponseStatusException(HttpStatus.NO_CONTENT));
+ 	}
 }
