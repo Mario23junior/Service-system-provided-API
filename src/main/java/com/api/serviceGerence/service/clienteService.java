@@ -53,20 +53,3 @@ public class clienteService {
 	}
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
