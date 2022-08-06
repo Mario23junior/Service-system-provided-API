@@ -3,6 +3,8 @@ package com.api.serviceGerence.controller;
 import javax.validation.Valid;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,5 +28,10 @@ public class ClienteController {
 	@ResponseStatus(HttpStatus.CREATED)
 	public Cliente save(@RequestBody @Valid Cliente cliente) {
 		return clienteService.saveCliente(cliente);
+	}
+	
+	@GetMapping("{id}")
+	public Cliente listId(@PathVariable Integer id) {
+		return clienteService.listClient(id);
 	}
 }
